@@ -56,25 +56,19 @@ public class DepartmentDAO {
   }
 
   public List<Department> listByCampus(int idCampus, boolean onlyActive)
-    throws SQLException {
-    Connection conn = null;
-    Statement stmt = null;
-    ResultSet rs = null;
-
-    try {
-      conn = ConnectionDAO.getInstance().getConnection();
-      stmt = conn.createStatement();
-
-      rs =
-        stmt.executeQuery(
-          "SELECT department.*, campus.name AS campusName " +
-          "FROM department INNER JOIN campus ON campus.idCampus=department.idCampus " +
-          "WHERE department.idCampus=" +
-          String.valueOf(idCampus) +
-          (onlyActive ? " AND department.active=1" : "") +
-          " ORDER BY department.name"
-        );
-
+    throws SQLException { //remove finally e usa a estrutura try-with-resources
+    try (
+      Connection conn = ConnectionDAO.getInstance().getConnection();
+      Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery(
+        "SELECT department.*, campus.name AS campusName " +
+        "FROM department INNER JOIN campus ON campus.idCampus=department.idCampus " +
+        "WHERE department.idCampus=" +
+        String.valueOf(idCampus) +
+        (onlyActive ? " AND department.active=1" : "") +
+        " ORDER BY department.name"
+      );
+    ) {
       List<Department> list = new ArrayList<Department>();
 
       while (rs.next()) {
@@ -82,10 +76,6 @@ public class DepartmentDAO {
       }
 
       return list;
-    } finally {
-      if ((rs != null) && !rs.isClosed()) rs.close();
-      if ((stmt != null) && !stmt.isClosed()) stmt.close();
-      if ((conn != null) && !conn.isClosed()) conn.close();
     }
   }
 
