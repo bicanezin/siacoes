@@ -13,11 +13,12 @@ import br.edu.utfpr.dv.siacoes.model.ActivityUnit;
 
 public class ActivityUnitDAO {
 	
-	public List<ActivityUnit> listAll() throws SQLException{ // uso da estrutura try-with-resources
+	public List<ActivityUnit> listAll() throws SQLException{ //remove finally e usa a estrutura try-with-resources
 		try(
-			Connection conn = ConnectionDAO.getInstance().getConnection();
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM activityunit ORDER BY description")){
+				Connection conn = ConnectionDAO.getInstance().getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM activityunit ORDER BY description")
+			) {
 			
 			List<ActivityUnit> list = new ArrayList<ActivityUnit>();
 			
@@ -29,31 +30,21 @@ public class ActivityUnitDAO {
 		}
 	}
 	
-	public ActivityUnit findById(int id) throws SQLException{
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		
-		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM activityunit WHERE idActivityUnit=?");
+	public ActivityUnit findById(int id) throws SQLException{ //remove finally e usa a estrutura try-with-resources
+		try 
+			(
+				Connection conn = ConnectionDAO.getInstance().getConnection();
+				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM activityunit WHERE idActivityUnit=?")
+			) {
 		
 			stmt.setInt(1, id);
-			
-			rs = stmt.executeQuery();
-			
-			if(rs.next()){
+		
+			try(ResultSet rs = stmt.executeQuery()) {
+			if(rs.next()) {
 				return this.loadObject(rs);
 			}else{
 				return null;
 			}
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
 		}
 	}
 	
