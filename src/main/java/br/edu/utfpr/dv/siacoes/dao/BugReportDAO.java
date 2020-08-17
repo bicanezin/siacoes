@@ -36,21 +36,16 @@ public class BugReportDAO {
     }
   }
 
-  public List<BugReport> listAll() throws SQLException {
-    Connection conn = null;
-    Statement stmt = null;
-    ResultSet rs = null;
-
-    try {
-      conn = ConnectionDAO.getInstance().getConnection();
-      stmt = conn.createStatement();
-
-      rs =
-        stmt.executeQuery(
-          "SELECT bugreport.*, \"user\".name " +
-          "FROM bugreport INNER JOIN \"user\" ON \"user\".idUser=bugreport.idUser " +
-          "ORDER BY status, reportdate"
-        );
+  public List<BugReport> listAll() throws SQLException { //remove finally e usa a estrutura try-with-resources
+    try (
+      Connection conn = ConnectionDAO.getInstance().getConnection();
+      Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery(
+        "SELECT bugreport.*, \"user\".name " +
+        "FROM bugreport INNER JOIN \"user\" ON \"user\".idUser=bugreport.idUser " +
+        "ORDER BY status, reportdate"
+      );
+    ) {
       List<BugReport> list = new ArrayList<BugReport>();
 
       while (rs.next()) {
@@ -58,10 +53,6 @@ public class BugReportDAO {
       }
 
       return list;
-    } finally {
-      if ((rs != null) && !rs.isClosed()) rs.close();
-      if ((stmt != null) && !stmt.isClosed()) stmt.close();
-      if ((conn != null) && !conn.isClosed()) conn.close();
     }
   }
 
