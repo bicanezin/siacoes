@@ -14,15 +14,10 @@ import br.edu.utfpr.dv.siacoes.model.ActivityUnit;
 public class ActivityUnitDAO {
 	
 	public List<ActivityUnit> listAll() throws SQLException{
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		
 		try{
-			conn = ConnectionDAO.getInstance().getConnection();
-			stmt = conn.createStatement();
-		
-			rs = stmt.executeQuery("SELECT * FROM activityunit ORDER BY description");
+			Connection conn = ConnectionDAO.getInstance().getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM activityunit ORDER BY description");
 			
 			List<ActivityUnit> list = new ArrayList<ActivityUnit>();
 			
