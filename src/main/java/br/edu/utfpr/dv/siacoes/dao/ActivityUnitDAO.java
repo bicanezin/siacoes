@@ -13,11 +13,11 @@ import br.edu.utfpr.dv.siacoes.model.ActivityUnit;
 
 public class ActivityUnitDAO {
 	
-	public List<ActivityUnit> listAll() throws SQLException{
-		try{
+	public List<ActivityUnit> listAll() throws SQLException{ // uso da estrutura try-with-resources
+		try(
 			Connection conn = ConnectionDAO.getInstance().getConnection();
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM activityunit ORDER BY description");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM activityunit ORDER BY description")){
 			
 			List<ActivityUnit> list = new ArrayList<ActivityUnit>();
 			
@@ -26,13 +26,6 @@ public class ActivityUnitDAO {
 			}
 			
 			return list;
-		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
 		}
 	}
 	
