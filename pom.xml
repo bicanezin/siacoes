@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  	<modelVersion>4.0.0</modelVersion>
-  	<groupId>br.edu.utfpr.dv</groupId>
-  	<artifactId>siacoes</artifactId>
-  	<packaging>war</packaging>
-  	<version>0.0.1-SNAPSHOT</version>
-  	<name>siacoes</name>
-  	<url>http://maven.apache.org</url>
-  
-  	<properties>
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.edu.utfpr.dv</groupId>
+	<artifactId>siacoes</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>siacoes</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
 		<vaadin.version>7.7.17</vaadin.version>
 		<vaadin.plugin.version>7.7.17</vaadin.plugin.version>
 		<jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
@@ -18,7 +18,7 @@
 		<!-- If there are no local customisations, this can also be "fetch" or "cdn" -->
 		<vaadin.widgetset.mode>local</vaadin.widgetset.mode>
 	</properties>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -28,353 +28,365 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			
+
 			<dependency>
-			    <groupId>org.projectlombok</groupId>
-			    <artifactId>lombok</artifactId>
-			    <version>1.18.12</version>
-			    <scope>provided</scope>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.2</version>
+				<scope>provided</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-  
-  	<dependencies>
-    	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
-      		<groupId>javax.servlet</groupId>
-      		<artifactId>javax.servlet-api</artifactId>
-      		<version>4.0.0</version>
-      		<scope>provided</scope>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.0</version>
+			<scope>provided</scope>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-server -->
+		<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-server -->
 		<dependency>
-      		<groupId>com.vaadin</groupId>
-      		<artifactId>vaadin-server</artifactId>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-server</artifactId>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-themes -->
+		<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-themes -->
 		<dependency>
-      		<groupId>com.vaadin</groupId>
-      		<artifactId>vaadin-themes</artifactId>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-themes</artifactId>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-push -->
+		<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-push -->
 		<dependency>
-      		<groupId>com.vaadin</groupId>
-      		<artifactId>vaadin-push</artifactId>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-push</artifactId>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-client-compiled -->
 		<dependency>
-      		<groupId>com.vaadin</groupId>
-      		<artifactId>vaadin-client-compiled</artifactId>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client-compiled</artifactId>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-client -->
+		<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-client -->
 		<dependency>
-      		<groupId>com.vaadin</groupId>
-      		<artifactId>vaadin-client</artifactId>
-      		<scope>provided</scope>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client</artifactId>
+			<scope>provided</scope>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-client-compiler -->
+		<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-client-compiler -->
 		<dependency>
-      		<groupId>com.vaadin</groupId>
-      		<artifactId>vaadin-client-compiler</artifactId>
-      		<scope>provided</scope>
-      		<exclusions>
-	    </exclusions>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client-compiler</artifactId>
+			<scope>provided</scope>
+			<exclusions>
+			</exclusions>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 		<dependency>
-      		<groupId>org.apache.logging.log4j</groupId>
-      		<artifactId>log4j-api</artifactId>
-      		<version>2.9.1</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.9.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
-      		<groupId>org.apache.logging.log4j</groupId>
-      		<artifactId>log4j-core</artifactId>
-      		<version>2.9.1</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.9.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.vaadin.addons/timefield -->
+		<!-- https://mvnrepository.com/artifact/org.vaadin.addons/timefield -->
 		<dependency>
-      		<groupId>org.vaadin.addons</groupId>
-      		<artifactId>timefield</artifactId>
-      		<version>0.9</version>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>timefield</artifactId>
+			<version>0.9</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.vaadin.addon/confirmdialog -->
+		<!-- https://mvnrepository.com/artifact/org.vaadin.addon/confirmdialog -->
 		<dependency>
-      		<groupId>org.vaadin.addon</groupId>
-      		<artifactId>confirmdialog</artifactId>
-      		<version>2.1.3</version>
+			<groupId>org.vaadin.addon</groupId>
+			<artifactId>confirmdialog</artifactId>
+			<version>2.1.3</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-digester3 -->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-digester3 -->
 		<dependency>
-      		<groupId>org.apache.commons</groupId>
-      		<artifactId>commons-digester3</artifactId>
-      		<version>3.2</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-digester3</artifactId>
+			<version>3.2</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
 		<dependency>
-      		<groupId>org.apache.commons</groupId>
-      		<artifactId>commons-collections4</artifactId>
-      		<version>4.1</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-lang3</artifactId>
-		    <version>3.7</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 		<dependency>
-		    <groupId>commons-codec</groupId>
-		    <artifactId>commons-codec</artifactId>
-		    <version>1.11</version>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
 		<dependency>
-      		<groupId>org.apache.commons</groupId>
-      		<artifactId>commons-dbcp2</artifactId>
-      		<version>2.1.1</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.1.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+		<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
 		<dependency>
-      		<groupId>com.google.zxing</groupId>
-      		<artifactId>core</artifactId>
-      		<version>3.3.1</version>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.google.zxing/javase -->
+		<!-- https://mvnrepository.com/artifact/com.google.zxing/javase -->
 		<dependency>
-      		<groupId>com.google.zxing</groupId>
-      		<artifactId>javase</artifactId>
-      		<version>3.3.1</version>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.3.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-bridge -->
+		<!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-bridge -->
 		<dependency>
-      		<groupId>org.apache.xmlgraphics</groupId>
-      		<artifactId>batik-bridge</artifactId>
-      		<version>1.9.1</version>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-bridge</artifactId>
+			<version>1.9.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
 		<dependency>
-      		<groupId>org.apache.tomcat</groupId>
-      		<artifactId>tomcat-jdbc</artifactId>
-      		<version>8.5.23</version>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>8.5.23</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/net.sf.barcode4j/barcode4j -->
+		<!-- https://mvnrepository.com/artifact/net.sf.barcode4j/barcode4j -->
 		<dependency>
-     		<groupId>net.sf.barcode4j</groupId>
-      		<artifactId>barcode4j</artifactId>
-      		<version>2.1</version>
+			<groupId>net.sf.barcode4j</groupId>
+			<artifactId>barcode4j</artifactId>
+			<version>2.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-icons -->
+		<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-icons -->
 		<dependency>
-      		<groupId>com.vaadin</groupId>
-      		<artifactId>vaadin-icons</artifactId>
-      		<version>3.0.1</version>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-icons</artifactId>
+			<version>3.0.1</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
 		<dependency>
-      		<groupId>org.bouncycastle</groupId>
-      		<artifactId>bcpkix-jdk15on</artifactId>
-      		<version>1.60</version>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>1.60</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
 		<dependency>
-		    <groupId>org.bouncycastle</groupId>
-		    <artifactId>bcprov-jdk15on</artifactId>
-		    <version>1.60</version>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.60</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-ext-jdk15on -->
 		<dependency>
-		    <groupId>org.bouncycastle</groupId>
-		    <artifactId>bcprov-ext-jdk15on</artifactId>
-		    <version>1.60</version>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-ext-jdk15on</artifactId>
+			<version>1.60</version>
 		</dependency>
-    	<!-- https://mvnrepository.com/artifact/org.knowm.xchart/xchart -->
+		<!-- https://mvnrepository.com/artifact/org.knowm.xchart/xchart -->
 		<dependency>
-      		<groupId>org.knowm.xchart</groupId>
-      		<artifactId>xchart</artifactId>
-      		<version>3.5.0</version>
+			<groupId>org.knowm.xchart</groupId>
+			<artifactId>xchart</artifactId>
+			<version>3.5.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
-      		<groupId>org.postgresql</groupId>
-      		<artifactId>postgresql</artifactId>
-      		<version>42.1.4</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.1.4</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 		<dependency>
-      		<groupId>net.sf.jasperreports</groupId>
-      		<artifactId>jasperreports</artifactId>
-      		<version>6.4.3</version>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.4.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
 		<dependency>
-      		<groupId>net.sf.jasperreports</groupId>
-      		<artifactId>jasperreports-fonts</artifactId>
-      		<version>6.0.0</version>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>6.0.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
 		<dependency>
-		    <groupId>org.codehaus.groovy</groupId>
-		    <artifactId>groovy-all</artifactId>
-		    <version>2.4.12</version>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.12</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
 		<dependency>
-		    <groupId>com.sun.mail</groupId>
-		    <artifactId>javax.mail</artifactId>
-		    <version>1.6.0</version>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
 		<dependency>
-		    <groupId>joda-time</groupId>
-		    <artifactId>joda-time</artifactId>
-		    <version>2.9.9</version>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9.9</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.google.gwt/gwt-user -->
 		<dependency>
-		    <groupId>com.google.gwt</groupId>
-		    <artifactId>gwt-user</artifactId>
-		    <version>2.7.0</version>
-		    <scope>provided</scope>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>2.7.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.google.gwt/gwt-servlet -->
 		<dependency>
-		    <groupId>com.google.gwt</groupId>
-		    <artifactId>gwt-servlet</artifactId>
-		    <version>2.7.0</version>
-		    <scope>runtime</scope>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>2.7.0</version>
+			<scope>runtime</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.byteowls/vaadin-chartjs -->
 		<dependency>
-		    <groupId>com.byteowls</groupId>
-		    <artifactId>vaadin-chartjs</artifactId>
-		    <version>0.4.0</version>
+			<groupId>com.byteowls</groupId>
+			<artifactId>vaadin-chartjs</artifactId>
+			<version>0.4.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
 		<dependency>
-		    <groupId>org.apache.pdfbox</groupId>
-		    <artifactId>pdfbox</artifactId>
-		    <version>2.0.16</version>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>2.0.16</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/preflight -->
 		<dependency>
-		    <groupId>org.apache.pdfbox</groupId>
-		    <artifactId>preflight</artifactId>
-		    <version>2.0.16</version>
-		    <scope>provided</scope>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>preflight</artifactId>
+			<version>2.0.16</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/fontbox -->
 		<dependency>
-		    <groupId>org.apache.pdfbox</groupId>
-		    <artifactId>fontbox</artifactId>
-		    <version>2.0.16</version>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>fontbox</artifactId>
+			<version>2.0.16</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.verapdf/core -->
 		<dependency>
-		    <groupId>org.verapdf</groupId>
-		    <artifactId>core</artifactId>
-		    <version>1.10.3</version>
+			<groupId>org.verapdf</groupId>
+			<artifactId>core</artifactId>
+			<version>1.10.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.verapdf/parser -->
 		<dependency>
-		    <groupId>org.verapdf</groupId>
-		    <artifactId>parser</artifactId>
-		    <version>1.10.3</version>
+			<groupId>org.verapdf</groupId>
+			<artifactId>parser</artifactId>
+			<version>1.10.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.verapdf/validation-model -->
 		<dependency>
-		    <groupId>org.verapdf</groupId>
-		    <artifactId>validation-model</artifactId>
-		    <version>1.10.3</version>
+			<groupId>org.verapdf</groupId>
+			<artifactId>validation-model</artifactId>
+			<version>1.10.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-server -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.core</groupId>
-		    <artifactId>jersey-server</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-common -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.core</groupId>
-		    <artifactId>jersey-common</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-common</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.core</groupId>
-		    <artifactId>jersey-client</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.containers</groupId>
-		    <artifactId>jersey-container-servlet</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet-core -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.containers</groupId>
-		    <artifactId>jersey-container-servlet-core</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.inject/jersey-hk2 -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.inject</groupId>
-		    <artifactId>jersey-hk2</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-jaxb -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.media</groupId>
-		    <artifactId>jersey-media-jaxb</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-jaxb</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson -->
 		<dependency>
-		    <groupId>org.glassfish.jersey.media</groupId>
-		    <artifactId>jersey-media-json-jackson</artifactId>
-		    <version>2.27</version>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.27</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>2.10.3</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.10.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-annotations</artifactId>
-		    <version>2.10.3</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.10.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-core</artifactId>
-		    <version>2.10.3</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.10.3</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
 		<dependency>
-		    <groupId>com.auth0</groupId>
-		    <artifactId>java-jwt</artifactId>
-		    <version>3.3.0</version>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.3.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
 		<dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>javax.mail-api</artifactId>
-		    <version>1.6.2</version>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.6.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.google.code.maven-play-plugin.org.apache.commons/commons-javaflow -->
 		<dependency>
-		    <groupId>com.google.code.maven-play-plugin.org.apache.commons</groupId>
-		    <artifactId>commons-javaflow</artifactId>
-		    <version>1590792-patched-play-1.3.0</version>
+			<groupId>com.google.code.maven-play-plugin.org.apache.commons</groupId>
+			<artifactId>commons-javaflow</artifactId>
+			<version>1590792-patched-play-1.3.0</version>
 		</dependency>
-  	</dependencies>
-  	
-  	<build>
-  		<finalName>siacoes</finalName>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.6.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.6.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>siacoes</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -385,7 +397,7 @@
 					<!-- Exclude an unnecessary file generated by the GWT compiler. -->
 					<packagingExcludes>WEB-INF/classes/VAADIN/widgetsets/WEB-INF/**</packagingExcludes>
 					<source>1.8</source>
-            		<target>1.8</target>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -396,9 +408,9 @@
 					<execution>
 						<goals>
 							<goal>update-theme</goal>
-					        <goal>update-widgetset</goal>
-					        <goal>compile</goal>
-					        <goal>compile-theme</goal>
+							<goal>update-widgetset</goal>
+							<goal>compile</goal>
+							<goal>compile-theme</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -418,8 +430,8 @@
 							</includes>
 						</fileset>
 						<fileset>
-                        	<directory>${basedir}/src/main/webapp/VAADIN/widgetsets</directory>
-                    	</fileset>
+							<directory>${basedir}/src/main/webapp/VAADIN/widgetsets</directory>
+						</fileset>
 					</filesets>
 				</configuration>
 			</plugin>
@@ -435,52 +447,52 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
+
 		<pluginManagement>
-	        <plugins>
-	            <!--This plugin's configuration is used to store Eclipse m2e settings 
-	                only. It has no influence on the Maven build itself. -->
-	            <plugin>
-	                <groupId>org.eclipse.m2e</groupId>
-	                <artifactId>lifecycle-mapping</artifactId>
-	                <version>1.0.0</version>
-	                <configuration>
-	                    <lifecycleMappingMetadata>
-	                        <pluginExecutions>
-	                            <pluginExecution>
-	                                <pluginExecutionFilter>
-	                                    <groupId>org.codehaus.mojo</groupId>
-	                                    <artifactId>gwt-maven-plugin</artifactId>
-	                                    <versionRange>[2.1.0-1,)</versionRange>
-	                                    <goals>
-	                                        <goal>resources</goal>
-	                                    </goals>
-	                                </pluginExecutionFilter>
-	                                <action>
-	                                    <ignore></ignore>
-	                                </action>
-	                            </pluginExecution>
-	                            <pluginExecution>
-	                                <pluginExecutionFilter>
-	                                    <groupId>com.vaadin</groupId>
-	                                    <artifactId>vaadin-maven-plugin</artifactId>
-	                                    <versionRange>[1.0.1,)</versionRange>
-	                                    <goals>
-	                                        <goal>update-widgetset</goal>
-	                                    </goals>
-	                                </pluginExecutionFilter>
-	                                <action>
-	                                    <ignore></ignore>
-	                                </action>
-	                            </pluginExecution>
-	                        </pluginExecutions>
-	                    </lifecycleMappingMetadata>
-	                </configuration>
-	            </plugin>
-	        </plugins>
-	    </pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings
+                    only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>gwt-maven-plugin</artifactId>
+										<versionRange>[2.1.0-1,)</versionRange>
+										<goals>
+											<goal>resources</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.vaadin</groupId>
+										<artifactId>vaadin-maven-plugin</artifactId>
+										<versionRange>[1.0.1,)</versionRange>
+										<goals>
+											<goal>update-widgetset</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
-	
+
 	<profiles>
 		<profile>
 			<!-- Vaadin pre-release repositories -->
@@ -504,11 +516,10 @@
 						<enabled>true</enabled>
 					</snapshots>
 				</repository>
-				
 				<repository>
-			        <id>projectlombok.org</id>
-			        <url>http://projectlombok.org/mavenrepo</url>
-			    </repository>
+					<id>projectlombok.org</id>
+					<url>http://projectlombok.org/mavenrepo</url>
+				</repository>
 			</repositories>
 			<pluginRepositories>
 				<pluginRepository>
